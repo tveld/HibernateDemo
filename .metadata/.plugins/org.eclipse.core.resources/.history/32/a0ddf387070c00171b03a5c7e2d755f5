@@ -1,0 +1,18 @@
+package com.hibernate.Hibernate;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        Nerd troy = new Nerd();
+        troy.setNid(1);
+        troy.setNname("Troy");
+        troy.setPlang("C++");
+        
+        
+    }
+}

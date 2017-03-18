@@ -1,0 +1,54 @@
+package com.hibernate.Hibernate;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		Nerd troy = new Nerd();
+		troy.setNid(1);
+		troy.setNname("Troy");
+		troy.setPlang("C++");
+
+		// hibernate save functionality
+		Configuration con = new Configuration().addAnnotatedClass(Nerd.class);
+
+		ServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(con.getProperties()).build();
+
+		SessionFactory sf = con.buildSessionFactory(reg);
+
+		Session session = sf.openSession();
+
+		Transaction transaction = (Transaction) session.beginTransaction();
+
+		session.save(troy);
+
+		try {
+			transaction.commit();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (HeuristicMixedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (HeuristicRollbackException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RollbackException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}

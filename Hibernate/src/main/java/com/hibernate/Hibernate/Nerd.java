@@ -1,0 +1,41 @@
+package com.hibernate.Hibernate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Nerd {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int nid;
+	private String nname;
+	private String plang;
+
+	public int getNid() {
+		return nid;
+	}
+
+	public void setNid(int nid) {
+		this.nid = nid;
+	}
+
+	public String getNname() {
+		return nname;
+	}
+
+	public void setNname(String nname) {
+		this.nname = nname;
+	}
+
+	public String getPlang() {
+		return plang;
+	}
+
+	public void setPlang(String plang) {
+		this.plang = plang;
+	}
+
+}

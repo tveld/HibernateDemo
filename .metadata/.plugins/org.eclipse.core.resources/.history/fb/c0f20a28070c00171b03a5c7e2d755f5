@@ -1,0 +1,14 @@
+package com.hibernate.Hibernate;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Nerd {
+
+	@Id
+	int nid;
+	String nname;
+	String plang;
+	
+}

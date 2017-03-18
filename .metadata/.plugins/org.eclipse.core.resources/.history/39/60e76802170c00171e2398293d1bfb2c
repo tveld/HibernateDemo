@@ -1,0 +1,85 @@
+package com.hibernate.Hibernate;
+
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.RollbackException;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.SystemException;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+/**
+ * Hibernate Demo
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		boolean run = true;
+		String name, plang, next;
+		
+		while(run){
+			
+			System.out.println("Welcome!\n");
+			System.out.println("Enter the following properties:\n");
+			System.out.println("First Name: ");
+			name = scan.next();
+			System.out.println("\nFavorite Programming Language: ");
+			plang = scan.next();
+			
+			
+			Nerd nerd = new Nerd();
+			nerd.setNname(name);
+			nerd.setPlang(plang);
+
+			// hibernate save functionality
+			Configuration conf = new Configuration();
+			conf.configure("hibernate.cfg.xml").addAnnotatedClass(Nerd.class);
+			
+			ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
+			
+			SessionFactory sf = conf.buildSessionFactory(sr);
+			
+			Session session = sf.openSession();
+
+			Transaction saveObject = (Transaction) session.beginTransaction();
+
+			session.save(nerd);
+
+			try {
+				saveObject.commit();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				
+			} 
+			
+			System.out.println("\n\nHere are the people in your database:\n\n");
+			
+			Criteria criteria = session.createCriteria(Nerd.class);
+			List<Nerd> list = criteria.list();
+			
+			for(Nerd index: list){
+				System.out.println(index.getNid() + ": " + index.getNname() + " " + index.getPlang() + "\n");
+			}
+			
+			
+			System.out.println("Add another entry? Y or N\n");
+			next = scan.next();
+			if(next.equalsIgnoreCase("y")){
+				run = true;
+			} else {
+				run = false;
+			}
+		}
+
+	}
+}

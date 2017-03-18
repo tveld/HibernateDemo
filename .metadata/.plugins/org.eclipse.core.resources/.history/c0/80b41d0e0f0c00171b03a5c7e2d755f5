@@ -1,0 +1,48 @@
+package com.hibernate.Hibernate;
+
+import javax.persistence.RollbackException;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.SystemException;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		Nerd nerd = new Nerd();
+		nerd.setNid(2);
+		nerd.setNname("Troy");
+		nerd.setPlang("C++");
+
+		// hibernate save functionality
+		Configuration conf = new Configuration();
+		conf.configure("hibernate.cfg.xml").addAnnotatedClass(Nerd.class);
+		
+		ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
+		
+		SessionFactory sf = conf.buildSessionFactory(sr);
+		
+		Session session = sf.openSession();
+
+		Transaction transaction = (Transaction) session.beginTransaction();
+
+		session.save(troy);
+
+		try {
+			transaction.commit();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+
+	}
+}
