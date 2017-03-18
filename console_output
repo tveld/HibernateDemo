@@ -1,0 +1,88 @@
+Welcome!
+
+Enter the following properties:
+
+First Name: 
+Paul
+
+Favorite Programming Language: 
+SQL
+Mar 18, 2017 4:02:08 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.1.0.Final}
+Mar 18, 2017 4:02:08 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+Mar 18, 2017 4:02:08 PM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : javassist
+Mar 18, 2017 4:02:08 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+Mar 18, 2017 4:02:08 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2017 4:02:08 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/people]
+Mar 18, 2017 4:02:08 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+Mar 18, 2017 4:02:08 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2017 4:02:08 PM org.hibernate.engine.jdbc.connections.internal.PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2017 4:02:09 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+
+
+Here are the people in your database:
+
+
+5: Troy C++
+
+10: Tim C#
+
+11: John HTML
+
+12: Dan Javascript
+
+13: Paul SQL
+
+Add another entry? Y or N
+
+Y
+Welcome!
+
+Enter the following properties:
+
+First Name: 
+Joe
+
+Favorite Programming Language: 
+Python
+Mar 18, 2017 4:02:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Mar 18, 2017 4:02:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/people]
+Mar 18, 2017 4:02:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+Mar 18, 2017 4:02:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Mar 18, 2017 4:02:37 PM org.hibernate.engine.jdbc.connections.internal.PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Mar 18, 2017 4:02:37 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+
+
+Here are the people in your database:
+
+
+5: Troy C++
+
+10: Tim C#
+
+11: John HTML
+
+12: Dan Javascript
+
+13: Paul SQL
+
+14: Joe Python
+
+Add another entry? Y or N
+
+N
